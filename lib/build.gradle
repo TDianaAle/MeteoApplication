@@ -1,0 +1,50 @@
+plugins {
+    id("application")
+    id("java")
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation("com.googlecode.json-simple:json-simple:1.1")
+    implementation("org.openjfx:javafx-controls:16")
+    implementation("org.openjfx:javafx-media:16")
+    implementation("org.json:json:20240303")
+    testImplementation("junit:junit:4.12")
+    
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs("src/main/resources/assets")
+        }
+}
+}
+/*tasks {
+    withType<JavaCompile>().configureEach {
+        options.encoding = "UTF-8"
+    }
+    withType<JavaExec>().configureEach {
+        systemProperty("file.encoding", "UTF-8")
+    }
+    withType<Javadoc>().configureEach {
+        options.encoding = "UTF-8"
+    }
+    withType<Test>().configureEach {
+        systemProperty("file.encoding", "UTF-8")
+    }
+}
+*/
+
+
+application {
+    mainClass.set("_MeteoApplication.Interfaccia")
+    mainClassName = "_MeteoApplication.Interfaccia"
+}
+tasks.jar {
+    manifest.attributes["Main-Class"] = "_MeteoApplication.Interfaccia"
+}
